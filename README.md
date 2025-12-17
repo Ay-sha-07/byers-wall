@@ -46,7 +46,7 @@ Meaning is reconstructed visually
 
 No decoding. No translation. Just letters — one at a time.
 
-###🧱 How It Works
+## 🧱 How It Works
 Shared Object
 
 A real-time alphabet state stored in Firebase.
