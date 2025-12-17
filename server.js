@@ -11,7 +11,7 @@ io.on('connection', (socket) => {
 
     socket.on('upside-down-signal', (letter) => {
         // Corrected backticks for the console log
-        console.log(Breach detected! Letter: ${letter});
+        console.log(`Breach detected! Letter: ${letter}`);
         io.emit('real-world-flicker', letter);
     });
 
