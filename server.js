@@ -4,16 +4,14 @@ const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 const path = require('path');
 
-// Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, 'public')));
 
 io.on('connection', (socket) => {
     console.log('A world has connected to the bridge.');
 
-    // Listen for the "hover trigger" from Member 1
     socket.on('upside-down-signal', (letter) => {
-        console.log(`Breach detected! Letter: ${letter}`);
-        // Broadcast to Member 2 (The Real World)
+        // Corrected backticks for the console log
+        console.log(Breach detected! Letter: ${letter});
         io.emit('real-world-flicker', letter);
     });
 
@@ -22,9 +20,9 @@ io.on('connection', (socket) => {
     });
 });
 
-const PORT = 3000;
+// Port configuration for Render
+const PORT = process.env.PORT || 3000; 
+
 http.listen(PORT, () => {
-    console.log(`Bridge is active at http://localhost:${PORT}`);
-    console.log(`Upside Down: http://localhost:${PORT}/upside-down`);
-    console.log(`Real World: http://localhost:${PORT}/real-world`);
+    console.log(Server is running on port ${PORT});
 });
