@@ -1,5 +1,5 @@
+/* --- BASE SETUP --- */
 body {
-    /* CHANGE THIS to your actual image filename */
     background-image: url('wall.jpeg'); 
     background-size: cover;
     background-position: center;
@@ -10,77 +10,170 @@ body {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    background-color: #221a15;
 }
 
-/* Moody Overlay: Darkens the image slightly to make lights pop */
+/* Moody Overlay */
 body::before {
     content: "";
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: radial-gradient(circle, transparent 10%, rgba(0,0,0,0.5) 100%);
+    background: radial-gradient(circle, transparent 5%, rgba(0,0,0,0.8) 100%);
     z-index: 0;
 }
 
 .wall-container {
     position: relative;
     z-index: 10;
-    width: 95%;
+    width: 98%;
     text-align: center;
+    transition: transform 0.1s;
 }
 
+/* --- THE MESSY WIRE --- */
 .row {
     display: flex;
     justify-content: center;
-    margin-bottom: 40px;
-    border-top: 2px solid rgba(0, 0, 0, 0.7); /* The wire */
-    padding-top: 15px;
+    margin-bottom: 60px; 
+    position: relative;
+    border-top: 5px solid #050505;
+    padding-top: 10px;
 }
 
+/* Frantic tilts for rows to look arranged in a hurry */
+.row:nth-child(even) { transform: rotate(-1.2deg) translateX(15px); }
+.row:nth-child(odd) { transform: rotate(0.8deg) translateX(-15px); }
+
+/* --- THE CHAOTIC ATTACHMENT --- */
 .letter-box {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 10px;
+    margin: 0 8px;
+    position: relative;
+    margin-top: -15px; 
 }
 
-/* FIX: Bulbs now have a "glassy" off-state so they are visible */
+/* Random jitter for bulbs/letters */
+.letter-box:nth-child(odd) { transform: translateY(12px) rotate(-7deg); }
+.letter-box:nth-child(even) { transform: translateY(-4px) rotate(5deg); }
+.letter-box:nth-child(3n) { transform: translateY(20px) rotate(10deg); }
+
+/* THE SOCKET: Messy black tape base */
+.bulb::before {
+    content: "";
+    position: absolute;
+    top: -9px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 12px;
+    background: #000;
+    clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%);
+    z-index: 2;
+}
+
+/* --- THE BULBS --- */
 .bulb {
-    width: 20px;
-    height: 28px;
-    background-color: rgba(255, 255, 255, 0.15); 
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 22px;
+    height: 32px;
     border-radius: 50% 50% 40% 40%;
-    margin-bottom: 8px;
-    box-shadow: inset 0 0 5px rgba(0,0,0,0.3);
+    margin-bottom: 5px;
     transition: all 0.2s ease;
+    border: 1px solid rgba(0, 0, 0, 0.7);
+    position: relative;
+    box-shadow: inset 0 -4px 6px rgba(0,0,0,0.5);
+    z-index: 1;
 }
 
-/* FIX: Letters get a subtle white halo so they don't vanish on brown */
+/* Grimy Glint */
+.bulb::after {
+    content: "";
+    position: absolute;
+    top: 4px; left: 4px;
+    width: 4px; height: 8px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+}
+
+/* Off-State Colors (Muddy/Dark) */
+.letter-box:nth-child(4n+1) .bulb { background-color: #5a0000; }
+.letter-box:nth-child(4n+2) .bulb { background-color: #000a4a; }
+.letter-box:nth-child(4n+3) .bulb { background-color: #4a4500; }
+.letter-box:nth-child(4n+4) .bulb { background-color: #003311; }
+
+/* --- LETTERS --- */
 .letter {
     font-family: 'Permanent Marker', cursive;
     font-size: 5.5rem;
     color: #111;
-    line-height: 0.8;
-    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.4); 
+    line-height: 0.7;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
     user-select: none;
 }
 
-/* FIX: Message area now has a dark base for clear reading */
+/* Frantic variations in handwriting size */
+.letter-box:nth-child(3n) .letter { font-size: 6.2rem; transform: rotate(3deg); }
+.letter-box:nth-child(4n) .letter { font-size: 4.5rem; transform: scaleX(1.3); }
+
+/* --- ACTIVE EFFECTS (ON) --- */
+.active-red .bulb    { background: #ff0000; box-shadow: 0 0 40px #ff0000, 0 0 80px #ff0000; }
+.active-blue .bulb   { background: #0055ff; box-shadow: 0 0 40px #0055ff, 0 0 80px #0055ff; }
+.active-yellow .bulb { background: #ffea00; box-shadow: 0 0 40px #ffea00, 0 0 80px #ffea00; }
+.active-green .bulb  { background: #00ff44; box-shadow: 0 0 40px #00ff44, 0 0 80px #00ff44; }
+
+.active-red, .active-blue, .active-yellow, .active-green {
+    animation: violentFlicker 0.1s infinite alternate, microShake 0.1s infinite;
+}
+
+@keyframes violentFlicker { 
+    from { filter: brightness(0.7); } 
+    to { filter: brightness(2.2) contrast(1.3); } 
+}
+
+@keyframes microShake {
+    0% { transform: translate(1px, 1px); }
+    100% { transform: translate(-1px, -1px); }
+}
+
+/* --- THE "RUN" TRIGGER (HEAVY SHAKE) --- */
+/* Target the main-wall specifically when the JS adds the class */
+.heavy-shake {
+    animation: panic 0.1s infinite !important;
+}
+
+/* Red Emergency Vignette that appears only during RUN */
+.heavy-shake::after {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: radial-gradient(circle, transparent 20%, rgba(150, 0, 0, 0.5) 100%);
+    z-index: 100;
+    pointer-events: none;
+    animation: pulseRed 0.2s infinite alternate;
+}
+
+@keyframes panic {
+    0% { transform: translate(8px, 8px) rotate(0.5deg); }
+    25% { transform: translate(-8px, -4px) rotate(-0.5deg); }
+    50% { transform: translate(4px, -8px) rotate(1deg); }
+    75% { transform: translate(-4px, 8px) rotate(-1deg); }
+    100% { transform: translate(8px, 8px); }
+}
+
+@keyframes pulseRed {
+    from { opacity: 0.2; }
+    to { opacity: 1; }
+}
+
+/* --- UI COMPONENTS --- */
 .message-area {
     margin-top: 40px;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.75);
+    color: #fff;
     padding: 15px 40px;
     border-radius: 8px;
     display: inline-block;
-    border: 1px solid rgba(255,255,255,0.1);
-}
-
-.label {
-    font-family: Arial, sans-serif;
-    color: #888;
-    font-size: 1rem;
-    margin-right: 15px;
-    letter-spacing: 2px;
 }
 
 #decoded-message {
@@ -91,34 +184,12 @@ body::before {
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
-/* SHAKE & GLOW */
-@keyframes shake {
-    0% { transform: translate(1px, 1px) rotate(0deg); }
-    50% { transform: translate(-2px, -1px) rotate(1deg); }
-    100% { transform: translate(1px, 1px) rotate(0deg); }
+.wall-texture { 
+    position: fixed; 
+    top: 0; left: 0; 
+    width: 100%; height: 100%; 
+    filter: url(#noise); 
+    opacity: 0.15; 
+    pointer-events: none; 
+    z-index: 1; 
 }
-
-.heavy-shake {
-    animation: wallTremble 0.1s infinite;
-}
-
-@keyframes wallTremble {
-    0% { transform: translate(4px, 4px); }
-    100% { transform: translate(-4px, -4px); }
-}
-
-.active-red .bulb    { background: #ff3e3e; box-shadow: 0 0 30px #ff0000, 0 0 60px #ff0000; border: none; }
-.active-blue .bulb   { background: #3e8fff; box-shadow: 0 0 30px #0055ff, 0 0 60px #0055ff; border: none; }
-.active-yellow .bulb { background: #ffeb3b; box-shadow: 0 0 30px #ffea00, 0 0 60px #ffea00; border: none; }
-.active-green .bulb  { background: #3eff7e; box-shadow: 0 0 30px #00ff44, 0 0 60px #00ff44; border: none; }
-
-.active-red, .active-blue, .active-yellow, .active-green {
-    animation: flicker 0.1s infinite alternate, shake 0.1s infinite;
-}
-
-@keyframes flicker { from { filter: brightness(1); } to { filter: brightness(1.6); } }
-
-/* Atmosphere */
-.wall-texture { position: fixed; top: 0; left: 0; width: 100%; height: 100%; filter: url(#noise); opacity: 0.12; pointer-events: none; z-index: 1; }
-.dust { position: absolute; background: rgba(255, 255, 255, 0.1); border-radius: 50%; filter: blur(1px); animation: drift 12s linear infinite; }
-@keyframes drift { 0% { transform: translate(0, 0); opacity: 0; } 100% { transform: translate(80px, -100vh); opacity: 0.3; } }
