@@ -18,10 +18,6 @@ Joyce’s Alphabet Wall as a communication system where the Upside Down can only
 
 Inspired by Stranger Things, Joyce’s Alphabet Wall is a web-based communication system where two different “worlds” interact through a shared alphabet wall.
 The Upside Down cannot speak or type messages directly. It can only interact by selecting letters, which then light up in the Real World — one letter at a time.
-There is:
-❌ No camera
-❌ No Morse code
-❌ No sensors or hardware
 
 Only state-based communication through a shared digital object — just like Joyce and Will.
 
