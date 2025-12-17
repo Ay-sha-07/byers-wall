@@ -1,0 +1,124 @@
+body {
+    /* CHANGE THIS to your actual image filename */
+    background-image: url('wall.jpeg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Moody Overlay: Darkens the image slightly to make lights pop */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle, transparent 10%, rgba(0,0,0,0.5) 100%);
+    z-index: 0;
+}
+
+.wall-container {
+    position: relative;
+    z-index: 10;
+    width: 95%;
+    text-align: center;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    border-top: 2px solid rgba(0, 0, 0, 0.7); /* The wire */
+    padding-top: 15px;
+}
+
+.letter-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 10px;
+}
+
+/* FIX: Bulbs now have a "glassy" off-state so they are visible */
+.bulb {
+    width: 20px;
+    height: 28px;
+    background-color: rgba(255, 255, 255, 0.15); 
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50% 50% 40% 40%;
+    margin-bottom: 8px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.3);
+    transition: all 0.2s ease;
+}
+
+/* FIX: Letters get a subtle white halo so they don't vanish on brown */
+.letter {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 5.5rem;
+    color: #111;
+    line-height: 0.8;
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.4); 
+    user-select: none;
+}
+
+/* FIX: Message area now has a dark base for clear reading */
+.message-area {
+    margin-top: 40px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 15px 40px;
+    border-radius: 8px;
+    display: inline-block;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.label {
+    font-family: Arial, sans-serif;
+    color: #888;
+    font-size: 1rem;
+    margin-right: 15px;
+    letter-spacing: 2px;
+}
+
+#decoded-message {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 3.5rem;
+    letter-spacing: 12px;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* SHAKE & GLOW */
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    50% { transform: translate(-2px, -1px) rotate(1deg); }
+    100% { transform: translate(1px, 1px) rotate(0deg); }
+}
+
+.heavy-shake {
+    animation: wallTremble 0.1s infinite;
+}
+
+@keyframes wallTremble {
+    0% { transform: translate(4px, 4px); }
+    100% { transform: translate(-4px, -4px); }
+}
+
+.active-red .bulb    { background: #ff3e3e; box-shadow: 0 0 30px #ff0000, 0 0 60px #ff0000; border: none; }
+.active-blue .bulb   { background: #3e8fff; box-shadow: 0 0 30px #0055ff, 0 0 60px #0055ff; border: none; }
+.active-yellow .bulb { background: #ffeb3b; box-shadow: 0 0 30px #ffea00, 0 0 60px #ffea00; border: none; }
+.active-green .bulb  { background: #3eff7e; box-shadow: 0 0 30px #00ff44, 0 0 60px #00ff44; border: none; }
+
+.active-red, .active-blue, .active-yellow, .active-green {
+    animation: flicker 0.1s infinite alternate, shake 0.1s infinite;
+}
+
+@keyframes flicker { from { filter: brightness(1); } to { filter: brightness(1.6); } }
+
+/* Atmosphere */
+.wall-texture { position: fixed; top: 0; left: 0; width: 100%; height: 100%; filter: url(#noise); opacity: 0.12; pointer-events: none; z-index: 1; }
+.dust { position: absolute; background: rgba(255, 255, 255, 0.1); border-radius: 50%; filter: blur(1px); animation: drift 12s linear infinite; }
+@keyframes drift { 0% { transform: translate(0, 0); opacity: 0; } 100% { transform: translate(80px, -100vh); opacity: 0.3; } }

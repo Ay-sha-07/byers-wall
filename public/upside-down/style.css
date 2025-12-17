@@ -1,0 +1,72 @@
+body {
+    background-color: #000; /* Deep black background */
+    background-image: 
+        radial-gradient(circle at center, #1a0000 0%, #000 80%), /* Subtle red vignette */
+        linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), /* Scanlines */
+        linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 100%, 100% 4px, 3px 100%;
+    color: #ff0000; /* Blood red text */
+    font-family: 'Courier New', Courier, monospace;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    overflow: hidden;
+}
+
+#upside-down-wall {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between rows */
+    width: 90%;
+    max-width: 1000px;
+}
+
+.row {
+    display: flex;
+    justify-content: center; /* Centers letters in the row */
+    gap: 15px; /* Equal spacing between boxes */
+}
+
+.letter-box {
+    width: 60px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #440000; /* Dark red borders */
+    background: rgba(10, 0, 0, 0.8);
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #660000; /* Dimmer red when idle */
+    transition: all 0.2s ease-out;
+    cursor: none; /* Hide cursor to make the orb/hover feel more like "force" */
+    user-select: none;
+}
+
+/* The "Charging" state - when mouse is hovering */
+.letter-box.charging {
+    color: #ff0000;
+    border-color: #ff0000;
+    box-shadow: 0 0 15px #ff0000, inset 0 0 10px #660000;
+    transform: scale(1.15) translateY(-5px);
+    z-index: 10;
+}
+
+/* Glitch Effect on Hover */
+.letter-box.charging::after {
+    content: attr(data-letter);
+    position: absolute;
+    left: 2px;
+    text-shadow: -2px 0 red;
+    background: black;
+    overflow: hidden;
+    animation: glitch 0.3s infinite linear alternate-reverse;
+}
+
+@keyframes glitch {
+    0% { clip-path: inset(10% 0 30% 0); }
+    100% { clip-path: inset(40% 0 10% 0); }
+}
