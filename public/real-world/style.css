@@ -138,17 +138,40 @@ body::before {
 
 /* --- THE "RUN" TRIGGER (HEAVY SHAKE) --- */
 /* Target the main-wall specifically when the JS adds the class */
+/* --- THE "RUN" TRIGGER (HEAVY SHAKE) --- */
+
+/* 1. Shake the container */
 .heavy-shake {
     animation: panic 0.1s infinite !important;
 }
 
-/* Red Emergency Vignette that appears only during RUN */
+/* 2. THE FIX: Apply the red pulse to the body's ::after when heavy-shake is active.
+   This ensures it is relative to the WINDOW, not the shaking container. */
+body:has(.heavy-shake)::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    /* Deep red vignette that covers everything */
+    background: radial-gradient(circle at center, transparent 0%, rgba(255, 0, 0, 0.3) 60%, rgba(150, 0, 0, 0.9) 100%);
+    z-index: 9999;
+    pointer-events: none;
+    animation: pulseRed 0.2s infinite alternate;
+}
+
+/* Fallback: If your browser doesn't support :has(), we attach it to the container 
+   but use negative margins to bleed past the edges */
 .heavy-shake::after {
     content: "";
     position: fixed;
-    top: 0; left: 0; width: 100vw; height: 100vh;
-    background: radial-gradient(circle, transparent 20%, rgba(150, 0, 0, 0.5) 100%);
-    z-index: 100;
+    top: -100vh; 
+    left: -100vw;
+    width: 300vw; 
+    height: 300vh;
+    background: radial-gradient(circle at center, transparent 10%, rgba(143, 0, 0, 0.5) 40%, rgba(98, 0, 0, 0.9) 60%);
+    z-index: 9999;
     pointer-events: none;
     animation: pulseRed 0.2s infinite alternate;
 }
@@ -162,7 +185,7 @@ body::before {
 }
 
 @keyframes pulseRed {
-    from { opacity: 0.2; }
+    from { opacity: 0.5; }
     to { opacity: 1; }
 }
 
@@ -170,11 +193,19 @@ body::before {
 .message-area {
     margin-top: 40px;
     background: rgba(0, 0, 0, 0.75);
-    color: #fff;
+    
     padding: 15px 40px;
     border-radius: 8px;
     display: inline-block;
 }
+
+.label {
+    color: #888;
+    font-family: Arial, sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+}
+
 
 #decoded-message {
     font-family: 'Permanent Marker', cursive;
