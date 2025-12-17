@@ -1,8 +1,9 @@
 # byers-wall
 Joyce’s Alphabet Wall as a communication system where the Upside Down can only apply force to letters, and the Real World reconstructs language from the letters that react.
 
-# byers-wall ![LightTooBrightGIF](https://github.com/user-attachments/assets/241382af-6cbe-4674-88d6-b08d9e11c6c7)
+![StrangerThingsNetflixShowGIF](https://github.com/user-attachments/assets/846df769-d2e1-4dc9-89ac-ca0ed2736699)
 
+# byers-wall 
 
 
 ## Basic Details
