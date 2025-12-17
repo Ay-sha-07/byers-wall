@@ -14,61 +14,83 @@ Joyce’s Alphabet Wall as a communication system where the Upside Down can only
 - Member 2: Hannah Achu John - SOE,Cusat
 - Member 3: Ayisha Muhammed - SOE,Cusat
 
-### Project Description
-A fun web platform where **anyone** can post random wishes — from *“I want a lifetime supply of bubble tea”* to *“A pink Lamborghini”*.  
-Generous people (or just people with a good sense of humor) can browse wishes and anonymously fulfill them.  
+📌 Project Description
 
-🚫 **No direct contact** — everything is done via drop-shipping  
-💌 **Wishes can be tagged**: funny, weird, wholesome, life-changing.
+Inspired by Stranger Things, Joyce’s Alphabet Wall is a web-based communication system where two different “worlds” interact through a shared alphabet wall.
 
-## 🤔 The Problem (that doesn't exist)
-The world is full of unfulfilled wishes —  
-from *“I want a lifetime supply of bubble tea”* to *“A banana signed by Gordon Ramsay.”*  
-Are these needs urgent? No.  
-Are they important? Absolutely not.  
-But life’s too short to not make ridiculous dreams come true.
-## 💡 The Solution (that nobody asked for)
-Introducing **Wishdump** — the platform where generous strangers (or bored rich people) can scroll through absurd, wholesome, or life-changing wishes and grant them... anonymously.  
+The Upside Down cannot speak or type messages directly. It can only interact by selecting letters, which then light up in the Real World — one letter at a time.
 
+There is:
 
-## Technical Details
-### Technologies/Components Used
-For Software:
-**Frontend** | HTML&CSS + JavaScript + React + TypeScript
- **Backend**  | Django / Flask *(Python)* OR Node.js API
+❌ No camera
 
+❌ No Morse code
 
-### Implementation
-For Software:
-# Installation
+❌ No sensors or hardware
 
-1. **Clone the repository**  
-```bash
-git clone https://github.com/Ay-sha-07/Wishdump.git
-cd Wishdump
+Only state-based communication through a shared digital object — just like Joyce and Will.
 
-```
-▶️ Run
-Django:
+🤔 The Problem (That Technically Doesn’t Exist)
 
+What if two worlds shared the same physical structure but:
 
+Could not talk
 
-python manage.py migrate   # Set up database
-python manage.py runserver # Start backend server
-Node.js:
+Could not see each other
 
-bash:
+Could only interact indirectly?
 
-npm run dev  # Start backend server
-React Frontend:
+Traditional communication systems assume direct messaging. But Stranger Things showed us something better — symbolic interaction.
 
-bash:
+💡 The Solution
 
-npm start   # Start frontend development server
+Joyce’s Alphabet Wall recreates that idea digitally.
 
+A 26-letter alphabet grid exists in both worlds
 
+The Upside Down can only select letters
 
+The Real World only sees letters glow
 
+Meaning is reconstructed visually
 
-### Project Documentation
-For Software:
+No decoding. No translation. Just letters — one at a time.
+
+🧱 How It Works
+Shared Object
+
+A real-time alphabet state stored in Firebase.
+
+Upside Down UI
+   ↓ (selected letter)
+Firebase Realtime Database
+   ↓
+Real World UI
+Communication Rules
+
+Only one letter is sent at a time
+
+Letters are sent in order
+
+No duplicates
+
+Real-time synchronization
+
+🛠️ Technical Details
+Technologies Used
+
+Frontend
+
+HTML, CSS, JavaScript
+
+Separate UIs for:
+
+Upside Down
+
+Real World
+
+Backend / Bridge
+
+Firebase Realtime Database
+
+JavaScript (no server-side code)
