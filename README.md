@@ -1,74 +1,86 @@
-# byers-wall✨
+# Joyce’s Alphabet Wall ✨
 
-Joyce’s Alphabet Wall as a communication system where the Upside Down can only apply force to letters, and the Real World reconstructs language from the letters that react.
+A state-based communication system inspired by Stranger Things
 
-![AzulqasGoodnightGIF (2)](https://github.com/user-attachments/assets/91df220f-b71b-4d1b-99d0-9fabf60ce273)
+Joyce’s Alphabet Wall reimagines the iconic Stranger Things communication method as a web-based system where two separate worlds communicate through shared state, not messages.
 
+The Upside Down cannot speak, type, or send text.
+It can only apply force to letters.
+The Real World reconstructs meaning from the letters that react.
 
-## Basic Details
-### Team Name: Byte Me
+---
 
+## Team Details
 
-### Team Members
-- Member 2: Aleesha S Boby - SOE,Cusat
-- Member 2: Hannah Achu John - SOE,Cusat
-- Member 3: Ayisha Muhammed - SOE,Cusat
+Team Name: Byte Me
 
-## 📌 Project Description
+Team Members
+Aleesha S Boby – School of Engineering, CUSAT
+Hannah Achu John – School of Engineering, CUSAT
+Ayisha Muhammed – School of Engineering, CUSAT
 
-Inspired by Stranger Things, Joyce’s Alphabet Wall is a web-based communication system where two different “worlds” interact through a shared alphabet wall.
-The Upside Down cannot speak or type messages directly. It can only interact by selecting letters, which then light up in the Real World — one letter at a time.
+---
 
-Only state-based communication through a shared digital object — just like Joyce and Will.
+## Project Overview
 
-## 🤔 The Problem
+Inspired by Stranger Things, Joyce’s Alphabet Wall is a symbolic communication system built around a single shared object: an alphabet wall.
 
-What if two worlds shared the same physical structure but:
-Could not talk,
-Could not see each other,
-Could only interact indirectly?
+Two distinct worlds exist.
 
-Traditional communication systems assume direct messaging. But Stranger Things showed us something better — symbolic interaction.
+-The Upside Down
+Cannot send messages directly
+Can only interact by selecting letters
 
-## 💡 The Solution
+-The Real World
+Cannot see the sender
+Can only observe letters lighting up
 
-Joyce’s Alphabet Wall recreates that idea digitally.
+Communication happens one letter at a time, through state changes, not text.
+
+---
+
+## The Problem
+
+Most communication systems assume direct visibility, shared language, and explicit messaging.
+
+But what if two entities cannot see or hear each other and can only interact through a shared structure?
+
+Traditional messaging fails under such constraints.
+
+---
+
+## The Solution
+
+Joyce’s Alphabet Wall introduces state-based communication.
 
 A 26-letter alphabet grid exists in both worlds.
 The Upside Down can only select letters.
-The Real World only sees letters glow.
+The Real World can only observe which letters glow.
 
-Meaning is reconstructed visually
+Meaning is reconstructed visually, letter by letter.
 
-No decoding. No translation. Just letters — one at a time.
+---
 
-## 🧱 How It Works
-Shared Object
+## How It Works
 
-A real-time alphabet state stored in Firebase.
+Shared State
+A real-time alphabet wall with letter states synced using Firebase.
 
-Upside Down UI
-   ↓ (selected letter)
-Firebase Realtime Database
-   ↓
-Real World UI
-Communication Rules
-
-Only one letter is sent at a time
-Letters are sent in order
-No duplicates
-Real-time synchronization
-
-## ⚒️ Technical Details
-Technologies Used:
-
-Frontend
-HTML, CSS, JavaScript
-
-Separate UIs for:
 Upside Down
-Real World
+Applies force to letters.
+Cannot see the Real World.
+Cannot send messages.
 
-Backend / Bridge
-Firebase Realtime Database
-JavaScript (no server-side code)
+Real World
+Watches letters glow.
+Interprets meaning from the sequence.
+
+Communication happens through state change, not direct data exchange.
+
+---
+
+## Why This Matters
+
+The project explores indirect communication systems, constraint-based interaction design, and how meaning can emerge purely from shared state.
+
+Sometimes, the message isn’t sent. It’s discovered.
