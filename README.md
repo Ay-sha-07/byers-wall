@@ -63,7 +63,7 @@ Letters are sent in order
 No duplicates
 Real-time synchronization
 
-## Technical Details
+## ⚒️ Technical Details
 Technologies Used:
 
 Frontend
