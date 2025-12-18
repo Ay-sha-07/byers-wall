@@ -1,86 +1,63 @@
 # Joyce’s Alphabet Wall ✨
 
-A state-based communication system inspired by Stranger Things
+A Stranger Things–inspired communication system
 
-Joyce’s Alphabet Wall reimagines the iconic Stranger Things communication method as a web-based system where two separate worlds communicate through shared state, not messages.
+Joyce’s Alphabet Wall is a web-based system where two separate worlds communicate through a shared alphabet wall.
 
-The Upside Down cannot speak, type, or send text.
-It can only apply force to letters.
-The Real World reconstructs meaning from the letters that react.
+The Upside Down cannot speak or send messages.
+It can only interact by selecting letters.
+The Real World sees letters light up and reconstructs meaning one letter at a time.
 
 ---
 
-## Team Details
+## Basic Details
 
 Team Name: Byte Me
 
 Team Members
-Aleesha S Boby – School of Engineering, CUSAT
-Hannah Achu John – School of Engineering, CUSAT
-Ayisha Muhammed – School of Engineering, CUSAT
+Aleesha S Boby – SOE, CUSAT
+Hannah Achu John – SOE, CUSAT
+Ayisha Muhammed – SOE, CUSAT
 
 ---
 
-## Project Overview
+## Inspiration
 
-Inspired by Stranger Things, Joyce’s Alphabet Wall is a symbolic communication system built around a single shared object: an alphabet wall.
-
-Two distinct worlds exist.
-
--The Upside Down
-Cannot send messages directly
-Can only interact by selecting letters
-
--The Real World
-Cannot see the sender
-Can only observe letters lighting up
-
-Communication happens one letter at a time, through state changes, not text.
+Inspired by the Stranger Things alphabet wall, where communication happens through indirect interaction with a shared physical object rather than direct messaging.
 
 ---
 
-## The Problem
+## What it does
 
-Most communication systems assume direct visibility, shared language, and explicit messaging.
-
-But what if two entities cannot see or hear each other and can only interact through a shared structure?
-
-Traditional messaging fails under such constraints.
+Provides a state-based communication system where one side selects letters and the other side interprets glowing letters to form meaning.
 
 ---
 
-## The Solution
+## How we built it
 
-Joyce’s Alphabet Wall introduces state-based communication.
-
-A 26-letter alphabet grid exists in both worlds.
-The Upside Down can only select letters.
-The Real World can only observe which letters glow.
-
-Meaning is reconstructed visually, letter by letter.
+Built as a web application with a shared alphabet grid.
+Letter states are synchronized in real time using Firebase to reflect interactions across both worlds.
 
 ---
 
-## How It Works
+## Challenges we ran into
 
-Shared State
-A real-time alphabet wall with letter states synced using Firebase.
-
-Upside Down
-Applies force to letters.
-Cannot see the Real World.
-Cannot send messages.
-
-Real World
-Watches letters glow.
-Interprets meaning from the sequence.
-
-Communication happens through state change, not direct data exchange.
+Designing communication without direct messaging, maintaining real-time synchronization, and ensuring interactions remained simple and constrained.
 
 ---
 
-## Why This Matters
+## Accomplishments that we're proud of
 
-The project explores indirect communication systems, constraint-based interaction design, and how meaning can emerge purely from shared state.
+Successfully recreated indirect communication using only shared state and interaction, closely mirroring the original inspiration.
 
-Sometimes, the message isn’t sent. It’s discovered.
+---
+
+## What we learned
+
+Learned about real-time state synchronization, constraint-based interaction design, and building meaning through minimal interfaces.
+
+---
+
+## What's next for Joyce’s Alphabet Wall
+
+Adding multi-user support, improving visual feedback, and exploring other symbolic communication systems.
