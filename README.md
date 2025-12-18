@@ -1,9 +1,5 @@
 # Joyce’s Alphabet Wall ✨
 
-![AzulqasGoodnightGIF](https://github.com/user-attachments/assets/a8f06417-4f9b-45b3-9c86-88daca30e645)
-![CuriousStrawGIF](https://github.com/user-attachments/assets/5ecf1d3e-c240-427d-b56b-a14bcc1c8677)
-
-
 A Stranger Things–inspired communication system
 
 Joyce’s Alphabet Wall is a web-based system where two separate worlds communicate through a shared alphabet wall.
