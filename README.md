@@ -2,9 +2,7 @@
 
 ## 📺 Application Walkthrough
 
-[![Watch the EcoVerse Demo Video](https://img.shields.io/badge/Watch%20Demo-Loom-28a745?style=for-the-badge&logo=loom)](https://www.loom.com/share/5f53e852216d44b99d4c2c1b1d8995f8)
-
-Click the badge above or click [here](https://www.loom.com/share/5f53e852216d44b99d4c2c1b1d8995f8) to watch a clean 30-second video walkthrough showing the layout and interactive interface of EcoVerse!
+![EcoVerse Demo](./public/demo.gif)
 
 
 
