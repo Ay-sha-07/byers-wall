@@ -1,11 +1,5 @@
 # Joyce’s Alphabet Wall ✨
 
-## 📺 Application Walkthrough
-
-![EcoVerse Demo](./public/demo.gif)
-
-
-
 A Stranger Things–inspired communication system
 
 Joyce’s Alphabet Wall is a web-based system where two separate worlds communicate through a shared alphabet wall.
